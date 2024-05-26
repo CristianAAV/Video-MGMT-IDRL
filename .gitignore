@@ -1,5 +1,3 @@
-data/*
-video-mgmt/videos/uploads/*
-video-mgmt/videos/processed/*
-almacenar/videos/uploads/*
-almacenar/videos/processed/*
+./psg/data/*
+./worker/tasks/videos/processed/*
+./worker/tasks/videos/uploads/*

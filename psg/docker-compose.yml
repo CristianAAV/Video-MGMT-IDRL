@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+
+  postgres-db:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_DB: idrl_db
+      POSTGRES_USER: idrl_user
+      POSTGRES_PASSWORD: idrl_2024
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    networks:
+      - network
+
+
+  postgres-queries:
+      build: ./postgres-queries
+      container_name: postgres_queries
+      depends_on:
+        - postgres-db
+      environment:
+        POSTGRES_HOST: postgres
+        POSTGRES_DB: idrl_db
+        POSTGRES_USER: idrl_user
+        POSTGRES_PASSWORD: idrl_2024
+      ports:
+        - "8000:8000"
+      command: ["./wait-for-it.sh", "postgres:5432", "--", "python", "app.py"]
+      networks:
+        - network
+
+networks:
+  network:
+    driver: bridge
