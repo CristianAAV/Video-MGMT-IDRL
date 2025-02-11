@@ -4,6 +4,7 @@ Se ha desplegado en GCP una de base de datos, 2 servicios en Cloud Run, el PubSu
 ![arquitectura-entrega-5](https://github.com/juanca-uniandes/idrl/assets/142269475/8c5c746c-6865-4d93-ad14-e544d1cf27da)
 
 La distribucion de los componentes se detalla a continuacion:
+
 - **Cloud Environment Web-Server:**
 Esta construido a partir del contenedor "Web Server", incluye las funciones de autenticacion y los demas endpoints "sincronos" necesarios para implementar la solucion.
 - **Cloud Environment Worker-Server:**
